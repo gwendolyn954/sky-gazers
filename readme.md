@@ -1,12 +1,10 @@
 # 🔭 Sky Gazers
 
-Sky Gazers is an educational web app that lets users explore NASA's Astronomy Picture of the Day by date.
 
-Built as a portfolio project, it uses NASA's APOD API and a Netlify Function to keep the API key secure.
 
 ## ✨ About
 
-Sky Gazers was created as an interactive way for young students to explore astronomy and discover NASA imagery.
+Sky Gazers is an educational web app that lets users explore NASA's Astronomy Picture of the Day by date.  Explore the [demo](https://skygazers-demo.netlify.app/)
 
 Built with ♡ by me @ Sweetpea Labs.
 
