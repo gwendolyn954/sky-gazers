@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Gazers - Mission Control</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+    <div class="mission-overlay"></div>
+
+    <div class="control-panel">
+        <header class="mission-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon">🛰️</span>
+                    <span class="logo-text">SKY GAZERS</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">SYSTEM ONLINE</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="mission-info">MISSION CONTROL</div>
+                <div class="location"></div>
+            </div>
+        </header>
+
+        <main class="control-main">
+            <section class="mission-brief">
+                <div class="panel-header">
+                    <span class="panel-icon">📡</span>
+                    <h1>ASTRONOMY PICTURE OF THE DAY</h1>
+                </div>
+                <p class="mission-description">
+                    Let's get ready to explore space! Choose a date and click the <strong>Initiate Retrieval</strong> button to explore a picture from space. <br> Want a quick choice? Click <strong>TODAY</strong> or <strong>RANDOM</strong>.
+                </p>
+            </section>
+
+            <section class="date-control-panel" id="date-panel">
+                <div class="panel-header">
+                    <span class="panel-icon">📅</span>
+                    <h2>CHOOSE A DATE</h2>
+                </div>
+
+                <div class="control-interface">
+                    <div class="input-group">
+                        <div class="date-spinners">
+                            <div class="spinner-unit">
+                                <span class="spinner-label">MON</span>
+                                <button class="spin-btn" id="month-up" type="button">▲</button>
+                                <div class="spin-display" id="spin-month"><span>JAN</span></div>
+                                <button class="spin-btn" id="month-down" type="button">▼</button>
+                            </div>
+
+                            <div class="spinner-sep">/</div>
+
+                            <div class="spinner-unit">
+                                <span class="spinner-label">DAY</span>
+                                <button class="spin-btn" id="day-up" type="button">▲</button>
+                                <div class="spin-display" id="spin-day"><span>01</span></div>
+                                <button class="spin-btn" id="day-down" type="button">▼</button>
+                            </div>
+
+                            <div class="spinner-sep">/</div>
+
+                            <div class="spinner-unit spinner-unit--wide">
+                                <span class="spinner-label">YEAR</span>
+                                <button class="spin-btn" id="year-up" type="button">▲</button>
+                                <div class="spin-display" id="spin-year"><span>2025</span></div>
+                                <button class="spin-btn" id="year-down" type="button">▼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="quick-btn" id="today-btn" type="button">TODAY</button>
+                        <button class="quick-btn" id="random-btn" type="button">RANDOM</button>
+                    </div>
+
+                    <button class="launch-btn" id="launch-btn" type="button">
+                        <span class="btn-icon">🚀</span>
+                        <span>INITIATE RETRIEVAL</span>
+                    </button>
+                </div>
+            </section>
+
+            <div class="loading-container" id="loading">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">RETRIEVING DATA FROM NASA...</p>
+            </div>
+
+            <section class="results-panel" id="results">
+                <div class="results-grid">
+                    <div class="image-panel">
+                        <div class="panel-header">
+                            <span class="panel-icon">🖼️</span>
+                            <h3 id="image-title">MEDIA DATA</h3>
+                        </div>
+                        <div class="image-container">
+                            <img id="apod-image" src="" alt="NASA APOD" style="display: none;">
+                            <iframe id="apod-video" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display: none;"></iframe>
+                            <div class="image-date" id="image-date"></div>
+                        </div>
+                    </div>
+
+                    <div class="data-panel">
+                        <div class="panel-header">
+                            <span class="panel-icon">📊</span>
+                            <h3>MISSION DATA</h3>
+                        </div>
+                        <div class="data-content">
+                            <div class="data-field">
+                                <span class="field-label">TITLE:</span>
+                                <span class="field-value" id="data-title">—</span>
+                            </div>
+                            <div class="data-field">
+                                <span class="field-label">DATE:</span>
+                                <span class="field-value" id="data-date">—</span>
+                            </div>
+                            <div class="data-field full-width">
+                                <span class="field-label">DESCRIPTION:</span>
+                                <div class="field-value description-text" id="data-description">
+                                    Awaiting data retrieval...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn" id="hd-btn" type="button">
+                                <span>📥</span> VIEW HD
+                            </button>
+                            <button class="action-btn action-btn--secondary" id="reset-btn" type="button">
+                                <span>↺</span> START OVER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mission-footer">
+            <div class="footer-content">
+                <p>© SKY GAZERS | A project with ♡ built by Sweetpea Labs</p>
+                <p class="footer-credits">Powered by NASA APOD API | Background: <a href="https://www.freepik.com/free-photo/galaxy-night-landscape_13140066.htm" target="_blank">Freepik</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="grid-overlay"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
