@@ -1,14 +1,14 @@
-# 🔭 Sky Gazers
+# Sky Gazers
 
 ![Sky Gazers Main Page](https://github.com/gwendolyn954/sky-gazers/blob/main/sky-gazers-home.png)
 
-## ✨ About
+## About
 
 Sky Gazers is an educational web app that lets users explore NASA's Astronomy Picture of the Day by date.  Explore the [demo](https://skygazers-demo.netlify.app/).
 
 Built with ♡ by me @ Sweetpea Labs.
 
-## 🚀 Features
+## Features
 
 * Browse NASA's Astronomy Picture of the Day by date
 * Jump to today's image
@@ -17,7 +17,7 @@ Built with ♡ by me @ Sweetpea Labs.
 * Open available HD images
 * Responsive mission-control inspired interface
 
-## 🛠️ Built With
+## Tech Stack
 
 * HTML
 * CSS
@@ -26,12 +26,12 @@ Built with ♡ by me @ Sweetpea Labs.
 * Netlify Functions
 * Netlify
 
-## 🔐 API Security
+## API Security
 
 The NASA API key is stored as a Netlify environment variable and is accessed through a server-side Netlify Function.
 
 
-## 🌠 How It Works
+## How It Works
 
 ```text
 Browser
@@ -39,17 +39,4 @@ Browser
 Netlify Function
    ↓
 NASA APOD API
-```
-
-## 📁 Project Structure
-
-```text
-sky-gazers/
-├── index.html
-├── style.css
-├── main.js
-├── galaxynightlandscape.jpg
-└── netlify/
-    └── functions/
-        └── apod.js
 ```
