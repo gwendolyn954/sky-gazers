@@ -189,17 +189,23 @@ async function fetchAPOD() {
 
     try {
         const response = await fetch(url);
+        const data = await response.json().catch(() => null);
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(
+                data?.error || 'Unable to retrieve this picture from NASA right now.'
+            );
         }
 
-        const data = await response.json();
+        if (!data?.date || !data?.title || !data?.explanation || !data?.url) {
+            throw new Error('NASA returned incomplete picture data. Please try another date.');
+        }
+
         currentAPODData = data;
         displayAPOD(data);
     } catch (error) {
         console.error('Error fetching APOD:', error);
-        showError('Mission failed! Unable to retrieve data. Please check your connection and try again.');
+        showError(error.message || 'Mission failed! Unable to retrieve data. Please try again.');
     } finally {
         hideLoading();
     }
@@ -315,10 +321,8 @@ function showError(message) {
             <h3 style="color: #ff4fd8; font-family: 'Orbitron', sans-serif; margin-bottom: 15px; letter-spacing: 1px;">
                 SYSTEM ALERT
             </h3>
-            <p style="color: #e0e6ed; line-height: 1.6; margin-bottom: 20px;">
-                ${message}
-            </p>
-            <button onclick="this.parentElement.parentElement.remove()" style="
+            <p class="error-message" style="color: #e0e6ed; line-height: 1.6; margin-bottom: 20px;"></p>
+            <button type="button" style="
                 padding: 10px 30px;
                 background: #9b5cff;
                 border: none;
@@ -333,6 +337,9 @@ function showError(message) {
             </button>
         </div>
     `;
+
+    errorDiv.querySelector('.error-message').textContent = message;
+    errorDiv.querySelector('button').addEventListener('click', () => errorDiv.remove());
 
     document.body.appendChild(errorDiv);
 
