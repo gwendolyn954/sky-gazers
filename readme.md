@@ -6,7 +6,6 @@
 
 Sky Gazers is an educational web app that lets users explore NASA's Astronomy Picture of the Day by date.  Explore the [demo](https://skygazers-demo.netlify.app/).
 
-Built with ♡ by me @ Sweetpea Labs.
 
 ## Features
 
